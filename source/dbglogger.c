@@ -237,6 +237,9 @@ void dbglogger_printf(const char* fmt, ...) {
         vsnprintf(buffer, sizeof(buffer), fmt, arg);
         va_end(arg);
     
+#ifdef __PS4__
+        printf("%s", buffer);
+#endif
         switch (loggerMode) {
             case UDP_LOGGER:
             case TCP_LOGGER:
