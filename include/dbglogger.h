@@ -37,7 +37,11 @@ extern "C" {
 //  TCP example string    "tcp:192.168.1.123:18194"
 //  File example string   "file:/dev_hdd0/temp/app.log"
 
+#ifdef USE_TTY_LOG
 #define TTY_LOGGER puts
+#else
+#define TTY_LOGGER
+#endif
 
 typedef enum {
     NO_LOGGER,
