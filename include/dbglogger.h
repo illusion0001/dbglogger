@@ -40,7 +40,7 @@ extern "C" {
 #if USE_TTY_LOG == 1
 #define TTY_LOGGER puts
 #else
-#define TTY_LOGGER()
+#define TTY_LOGGER(...)
 #endif
 
 typedef enum {
