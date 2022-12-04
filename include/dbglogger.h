@@ -36,7 +36,12 @@ extern "C" {
 #define DEFAULT_LOG_INIT  "udp:239.255.0.100:30000"
 //  TCP example string    "tcp:192.168.1.123:18194"
 //  File example string   "file:/dev_hdd0/temp/app.log"
+
+#ifdef (__PS4__) || (__PSVITA__)
 #define TTY_LOGGER puts
+#else
+#define TTY_LOGGER puts
+#endif
 
 typedef enum {
     NO_LOGGER,
