@@ -35,7 +35,7 @@ INCLUDE		:=	include
 DATA		:=	data
 LIBS		:=	 
 
-CFLAGS      += --target=x86_64-pc-freebsd12-elf -fPIC -funwind-tables -c $(EXTRAFLAGS) -isysroot $(OO_PS4_TOOLCHAIN) -isystem $(OO_PS4_TOOLCHAIN)/include $(INCLUDES) -D__PS4__
+CFLAGS      += --target=x86_64-pc-freebsd12-elf -fPIC -funwind-tables -c $(EXTRAFLAGS) -isysroot $(OO_PS4_TOOLCHAIN) -isystem $(OO_PS4_TOOLCHAIN)/include $(INCLUDES) -D__PS4__ -DUSE_TTY_LOG
 CXXFLAGS    += $(CFLAGS) -isystem $(OO_PS4_TOOLCHAIN)/include/c++/v1
 
 ifneq ($(BUILD),$(notdir $(CURDIR)))
