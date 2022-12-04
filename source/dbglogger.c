@@ -237,6 +237,7 @@ void dbglogger_printf(const char* fmt, ...) {
         vsnprintf(buffer, sizeof(buffer), fmt, arg);
         va_end(arg);
     
+        TTY_LOGGER(buffer);
         switch (loggerMode) {
             case UDP_LOGGER:
             case TCP_LOGGER:
@@ -259,9 +260,6 @@ void dbglogger_log(const char* fmt, ...) {
         vsnprintf(buffer, sizeof(buffer), fmt, arg);
         va_end(arg);
 
-#ifdef __PS4__
-        puts(buffer);
-#endif
         struct tm t = *gmtime(&(time_t){time(NULL)});
     
         dbglogger_printf("[%d-%02d-%02d %02d:%02d:%02d] %s\n", t.tm_year+1900, t.tm_mon+1, t.tm_mday, t.tm_hour, t.tm_min, t.tm_sec, buffer);
