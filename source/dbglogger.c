@@ -270,6 +270,7 @@ void dbglogger_log(const char* fmt, ...) {
 }
 
 int dbglogger_init_mode(const unsigned char log_mode, const char* dest, const unsigned short port) {
+    puts("hello from init_mode");
     loggerMode = log_mode;
     switch (log_mode) {
         case UDP_LOGGER:
